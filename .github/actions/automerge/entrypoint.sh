@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xeuC
+set -xe
 
 export GITHUB_TOKEN=${INPUT_GITHUB_TOKEN}
 
