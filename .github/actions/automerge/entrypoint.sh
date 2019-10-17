@@ -22,6 +22,7 @@ esac
 
 echo "pull_request_number=${pull_request_number}"
 
+hub api "repos/${repo}/pulls/${pull_request_number}" | jq '.mergeable_state'
 mergeable_state=$(hub api "repos/${repo}/pulls/${pull_request_number}" | jq '.mergeable_state' -r)
 
 if [ "${mergeable_state}" != 'clean' ]; then
