@@ -4,7 +4,8 @@ set -xe
 
 export GITHUB_TOKEN=${INPUT_GITHUB_TOKEN}
 
-repo='DreamArts/insuitex'
+repo=$(jq '.repository.full_name' -r <"${GITHUB_EVENT_PATH}")
+echo "${repo}"
 
 pull_request_number=0
 case ${GITHUB_EVENT_NAME} in
